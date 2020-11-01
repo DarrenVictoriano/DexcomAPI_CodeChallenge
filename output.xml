@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.2.2 (Python 3.7.9 on darwin)" generated="20201031 21:12:59.482" rpa="false">
+<suite id="s1" name="TC1 GET HomeUser" source="/Users/darren/Code/Python/Projects/DexcomAPITest/TestCases/TC1_GET_HomeUser.robot">
+<test id="s1-t1" name="Click HomeUser">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${base_url}</arg>
+</arguments>
+<msg timestamp="20201031 21:12:59.559" level="INFO">Creating Session using : alias=mysession, url=https://clarity.dexcom.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201031 21:12:59.559" endtime="20201031 21:12:59.560"></status>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<doc>Send a GET request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>/users/auth/dexcom_sts</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.768" level="INFO">GET Request : url=https://clarity.dexcom.com/users/auth/dexcom_sts (redirected) 
+ path_url=/users/auth/dexcom_sts 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20201031 21:13:00.768" level="INFO">GET Response : url=https://uam1.dexcom.com/identity/login?signin=98aff30061336cbb56b6cae371406c97 
+ status=200, reason=OK 
+ body=&lt;!DOCTYPE html&gt;&lt;html ng-app="userManagementWebAppLogin"&gt;&lt;head&gt;&lt;!--[if gte IE 9 | !IE ]&gt;
+		&lt;script async src="https://www.googletagmanager.com/gtag/js?id=UA-130780636-5"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			window.dataLayer = window.dataLayer || [];
+
+			function gtag() { dataLayer.push(arguments); }
+
+			gtag('js', new Date());
+
+			gtag('config', 'UA-130780636-5');
+		&lt;/script&gt;
+	&lt;![endif]--&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"&gt;&lt;link rel="stylesheet" href="/assets/favicon.ico"&gt;&lt;title&gt;Dexcom - Account Management&lt;/title&gt;&lt;link href="/assets/themes/dexcom-new/css/popup.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/popup-element.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/dexcom.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/less/app.min.css?v=1588892804366" rel="stylesheet"&gt;&lt;script src="/libs/angular-1.3.14/angular.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/libs/jQuery/jquery-2.1.3.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/once.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/themes/dexcom-new/scripts/popup.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/menu_helper.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript"&gt;function autoResize(frameObj) {
+			var newheight;
+			if (document.getElementById) {
+				newheight = frameObj.contentWindow.document.body.scrollHeight;
+			}
+			frameObj.height = (newheight) + "px";
+		}&lt;/script&gt;&lt;/head&gt;&lt;body ng-controller="loginController" class="html not-front not-logged-in page-user page-user-register context-user dexcom-page-user-register no-sidebars" ng-show="viewData.areResourcesLoaded==true &amp;&amp; sessionService.isAuthenticated()==false &amp;&amp; viewData.model!==undefined" ng-cloak&gt;&lt;div class="page clearfix" id="page"&gt;&lt;ng-include src="'/app/partials/header.html'"&gt;&lt;/ng-include&gt;&lt;section id="section-content" class="section section-content"&gt;&lt;div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix"&gt;&lt;div id="zone-content" class="zone zone-content clearfix container-12"&gt;&lt;div id="messages" class="grid-12" ng-if="viewData.loginErrors.length&gt;0"&gt;&lt;div class="messages error"&gt;&lt;h2 class="element-invisible"&gt;Error message&lt;/h2&gt;&lt;ul&gt;&lt;li ng-repeat="error in viewData.loginErrors track by $index"&gt;&lt;span ng-bind-html="methods.getErrorString(error, true)"&gt;&lt;/span&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="element-invisible"&gt;&lt;h1 class="title" id="page-title"&gt;{{methods.getResourceString('__USER_ACCOUNT_TITLE_NEW__')}}&lt;/h1&gt;&lt;/div&gt;&lt;div class="zone-wrapper"&gt;&lt;div class="zone-wrapper-inner"&gt;&lt;div class="zone-content"&gt;&lt;div class="grid-12 region region-content" id="region-content"&gt;&lt;div class="region-inner region-content-inner"&gt;&lt;a id="main-content"&gt;&lt;/a&gt;&lt;div class="block block-system block-main block-system-main odd block-without-title" id="block-system-main"&gt;&lt;div class="block-inner clearfix"&gt;&lt;div class="content clearfix"&gt;&lt;login-control dex-resource-helper="resourceHelper" dex-storage-service="storageService" dex-af-token="viewData.model.antiForgery" dex-action-url="viewData.model.loginUrl" dex-errors="viewData.loginErrors" on-create-account-request="uiEvents.onCreateAccountClick($event)" on-login-info-request="uiEvents.onLoginInfoRequest($event)" on-add-dependent-request="uiEvents.onAddDependentRequest($event)" user-name="viewData.model.username"&gt;&lt;/login-control&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;ng-include src="'/app/partials/footer.html'" ng-if="!viewData.isMobileMode"&gt;&lt;/ng-include&gt;&lt;/div&gt;&lt;script id="modelJson" type="application/json"&gt;{&amp;quot;loginUrl&amp;quot;:&amp;quot;/identity/login?signin=98aff30061336cbb56b6cae371406c97&amp;quot;,&amp;quot;antiForgery&amp;quot;:{&amp;quot;name&amp;quot;:&amp;quot;idsrv.xsrf&amp;quot;,&amp;quot;value&amp;quot;:&amp;quot;oy2f8UvcPWAkKOTEK0gURJWd1QM4rGkzGEYVclM-duxeLcPcxPWT879xvfjIt3Y3vn8HHPBT4kDLGOWPGR71LlJp_v-maz3jHmOQktICV1E&amp;quot;},&amp;quot;allowRememberMe&amp;quot;:true,&amp;quot;rememberMe&amp;quot;:false,&amp;quot;username&amp;quot;:null,&amp;quot;externalProviders&amp;quot;:[{&amp;quot;type&amp;quot;:&amp;quot;adfs&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;ADFS&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/external?provider=adfs&amp;amp;signin=98aff30061336cbb56b6cae371406c97&amp;quot;},{&amp;quot;type&amp;quot;:&amp;quot;savvy&amp;quot;,&amp;quot;text&amp;quot;:&amp;quot;Savvy&amp;quot;,&amp;quot;href&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/external?provider=savvy&amp;amp;signin=98aff30061336cbb56b6cae371406c97&amp;quot;}],&amp;quot;additionalLinks&amp;quot;:null,&amp;quot;clientName&amp;quot;:&amp;quot;Clarity&amp;quot;,&amp;quot;clientUrl&amp;quot;:&amp;quot;https://www.clarity.com&amp;quot;,&amp;quot;clientLogoUrl&amp;quot;:null,&amp;quot;errorMessage&amp;quot;:null,&amp;quot;requestId&amp;quot;:&amp;quot;bbaca50e-7438-49e3-bb35-337cd9947460&amp;quot;,&amp;quot;siteUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/&amp;quot;,&amp;quot;siteName&amp;quot;:&amp;quot;DexcomSTS&amp;quot;,&amp;quot;currentUser&amp;quot;:null,&amp;quot;logoutUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/logout&amp;quot;,&amp;quot;custom&amp;quot;:null}&lt;/script&gt;&lt;script id="localeCode" type="application/json"&gt;en-US&lt;/script&gt;&lt;script id="clientId" type="application/json"&gt;DAEC20AC-9626-4B0E-94B5-B674E298F51E&lt;/script&gt;&lt;script id="consentType" type="application/json"&gt;Default&lt;/script&gt;&lt;script id="consentKey" type="application/json"&gt;&lt;/script&gt;&lt;script id="displayMode" type="application/json"&gt;&lt;/script&gt;&lt;script id="returnUrl" type="application/json"&gt;https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&amp;prompt&amp;redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&amp;response_type=code&amp;scope=openid%20profile%20offline_access&amp;state=78e939f75896027d7dddc3708f4e3303a7fb9dbed433544c&amp;ui_locales=en-US&lt;/script&gt;&lt;script id="isLoginOnly" type="application/json"&gt;&lt;/script&gt;&lt;script src="/libs/platform/platform.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.BrowserCheck/browserValidator.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/underscore-1.6.0/underscore.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-route.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-animate.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-resource.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-gettext-0.2.9/angular-gettext.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/encoder/encoder.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/dexEnvironment.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/components.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.StsLogin/dex.StsLogin.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/dex.UIComponents/dex.UIComponents.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/login.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+
+ 
+ </msg>
+<msg timestamp="20201031 21:13:00.769" level="INFO">/Users/darren/anaconda3/envs/dexcom/lib/python3.7/site-packages/urllib3/connectionpool.py:988: InsecureRequestWarning: Unverified HTTPS request is being made to host 'clarity.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,
+/Users/darren/anaconda3/envs/dexcom/lib/python3.7/site-packages/urllib3/connectionpool.py:988: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,
+/Users/darren/anaconda3/envs/dexcom/lib/python3.7/site-packages/urllib3/connectionpool.py:988: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20201031 21:13:00.769" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201031 21:12:59.560" endtime="20201031 21:13:00.769"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${response.history[1].url}</arg>
+</arguments>
+<assign>
+<var>${first_redirect}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.770" level="INFO">${first_redirect} = https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&amp;prompt&amp;redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&amp;response_t...</msg>
+<status status="PASS" starttime="20201031 21:13:00.769" endtime="20201031 21:13:00.770"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.url}</arg>
+</arguments>
+<assign>
+<var>${second_redirect}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.771" level="INFO">${second_redirect} = https://uam1.dexcom.com/identity/login?signin=98aff30061336cbb56b6cae371406c97</msg>
+<status status="PASS" starttime="20201031 21:13:00.771" endtime="20201031 21:13:00.771"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${login_base_url}</arg>
+</arguments>
+<assign>
+<var>${start}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.772" level="INFO">Length is 23</msg>
+<msg timestamp="20201031 21:13:00.772" level="INFO">${start} = 23</msg>
+<status status="PASS" starttime="20201031 21:13:00.771" endtime="20201031 21:13:00.772"></status>
+</kw>
+<kw name="Get Substring" library="String">
+<doc>Returns a substring from ``start`` index to ``end`` index.</doc>
+<arguments>
+<arg>${second_redirect}</arg>
+<arg>start=${start}</arg>
+</arguments>
+<assign>
+<var>${login_uri}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.773" level="INFO">${login_uri} = /identity/login?signin=98aff30061336cbb56b6cae371406c97</msg>
+<status status="PASS" starttime="20201031 21:13:00.772" endtime="20201031 21:13:00.773"></status>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<arguments>
+<arg>${response.cookies}</arg>
+<arg>idsrv.xsrf</arg>
+</arguments>
+<assign>
+<var>${idsrv-xsrf}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.774" level="INFO">${idsrv-xsrf} = vEYVS5LiFAve-Eg8_p5JeEAr4HS2tt3altqLCA-ccqb-eM0DSFwCqaVvYn9EhRXmQ_P0s26thWm52larCS9hKPMQR5WH9knA1AF16VcEzos</msg>
+<status status="PASS" starttime="20201031 21:13:00.773" endtime="20201031 21:13:00.774"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${first_redirect}</arg>
+</arguments>
+<msg timestamp="20201031 21:13:00.774" level="INFO">${first_redirect} = https://uam1.dexcom.com/identity/connect/authorize?client_id=DAEC20AC-9626-4B0E-94B5-B674E298F51E&amp;prompt&amp;redirect_uri=https%3A%2F%2Fclarity.dexcom.com%2Fusers%2Fauth%2Fdexcom_sts%2Fcallback&amp;response_t...</msg>
+<status status="PASS" starttime="20201031 21:13:00.774" endtime="20201031 21:13:00.774"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${login_uri}</arg>
+</arguments>
+<msg timestamp="20201031 21:13:00.775" level="INFO">${login_uri} = /identity/login?signin=98aff30061336cbb56b6cae371406c97</msg>
+<status status="PASS" starttime="20201031 21:13:00.775" endtime="20201031 21:13:00.775"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${idsrv-xsrf}</arg>
+</arguments>
+<msg timestamp="20201031 21:13:00.775" level="INFO">${idsrv-xsrf} = vEYVS5LiFAve-Eg8_p5JeEAr4HS2tt3altqLCA-ccqb-eM0DSFwCqaVvYn9EhRXmQ_P0s26thWm52larCS9hKPMQR5WH9knA1AF16VcEzos</msg>
+<status status="PASS" starttime="20201031 21:13:00.775" endtime="20201031 21:13:00.776"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${second_redirect}</arg>
+</arguments>
+<status status="PASS" starttime="20201031 21:13:00.776" endtime="20201031 21:13:00.776"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${login_uri}</arg>
+</arguments>
+<status status="PASS" starttime="20201031 21:13:00.776" endtime="20201031 21:13:00.776"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.777" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20201031 21:13:00.776" endtime="20201031 21:13:00.777"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201031 21:13:00.777" endtime="20201031 21:13:00.777"></status>
+</kw>
+<status status="PASS" starttime="20201031 21:12:59.559" endtime="20201031 21:13:00.777" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Login">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${login_base_url}</arg>
+</arguments>
+<msg timestamp="20201031 21:13:00.778" level="INFO">Creating Session using : alias=mysession, url=https://uam1.dexcom.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20201031 21:13:00.778" endtime="20201031 21:13:00.779"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>username=%{USERNAME}</arg>
+<arg>password=%{PASSWORD}</arg>
+<arg>idsrv.xsrf=${idsrv-xsrf}</arg>
+</arguments>
+<assign>
+<var>${body}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.779" level="INFO">${body} = {'username': 'nilepatest001', 'password': 'Password@1', 'idsrv.xsrf': 'vEYVS5LiFAve-Eg8_p5JeEAr4HS2tt3altqLCA-ccqb-eM0DSFwCqaVvYn9EhRXmQ_P0s26thWm52larCS9hKPMQR5WH9knA1AF16VcEzos'}</msg>
+<status status="PASS" starttime="20201031 21:13:00.779" endtime="20201031 21:13:00.780"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Content-Type=x-www-form-urlencoded</arg>
+</arguments>
+<assign>
+<var>${header}</var>
+</assign>
+<msg timestamp="20201031 21:13:00.780" level="INFO">${header} = {'Content-Type': 'x-www-form-urlencoded'}</msg>
+<status status="PASS" starttime="20201031 21:13:00.780" endtime="20201031 21:13:00.780"></status>
+</kw>
+<kw name="Post Request" library="RequestsLibrary">
+<doc>Send a POST request on the session object found using the
+given `alias`</doc>
+<arguments>
+<arg>mysession</arg>
+<arg>${login_uri}</arg>
+<arg>data=${body}</arg>
+<arg>headers=${header}</arg>
+</arguments>
+<assign>
+<var>${response}</var>
+</assign>
+<msg timestamp="20201031 21:13:01.817" level="INFO">POST Request : url=https://uam1.dexcom.com/identity/login?signin=98aff30061336cbb56b6cae371406c97 
+ path_url=/identity/login?signin=98aff30061336cbb56b6cae371406c97 
+ headers={'User-Agent': 'python-requests/2.24.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'x-www-form-urlencoded', 'Content-Length': '163'} 
+ body=username=nilepatest001&amp;password=Password%401&amp;idsrv.xsrf=vEYVS5LiFAve-Eg8_p5JeEAr4HS2tt3altqLCA-ccqb-eM0DSFwCqaVvYn9EhRXmQ_P0s26thWm52larCS9hKPMQR5WH9knA1AF16VcEzos 
+ </msg>
+<msg timestamp="20201031 21:13:01.818" level="INFO">POST Response : url=https://uam1.dexcom.com/identity/login?signin=98aff30061336cbb56b6cae371406c97 
+ status=200, reason=OK 
+ body=&lt;!DOCTYPE html&gt;&lt;html ng-app="userManagementWebAppError"&gt;&lt;head&gt;&lt;script async src="https://www.googletagmanager.com/gtag/js?id=UA-130780636-4"&gt;&lt;/script&gt;&lt;script&gt;window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-130780636-4');&lt;/script&gt;&lt;meta charset="UTF-8"&gt;&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8"&gt;&lt;meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"&gt;&lt;link rel="shortcut icon" href="/assets/favicon.ico" type="image/vnd.microsoft.icon"&gt;&lt;title&gt;Dexcom - Account Management&lt;/title&gt;&lt;link href="/assets/themes/dexcom-new/css/popup.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/popup-element.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/assets/themes/dexcom-new/css/dexcom.css?v=1588892804366" rel="stylesheet"&gt;&lt;link href="/less/app.min.css?v=1588892804366" rel="stylesheet"&gt;&lt;script src="/libs/angular-1.3.14/angular.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/libs/jQuery/jquery-2.1.3.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/once.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/themes/dexcom-new/scripts/popup.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script type="text/javascript" src="/assets/scripts/menu_helper.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/head&gt;&lt;body ng-controller="errorController"&gt;&lt;div class="page clearfix" id="page"&gt;&lt;ng-include src="'/app/partials/header.html'"&gt;&lt;/ng-include&gt;&lt;section id="section-content" class="section section-content"&gt;&lt;div id="zone-content-wrapper" class="zone-wrapper zone-content-wrapper clearfix"&gt;&lt;div id="zone-content" class="zone zone-content clearfix container-12" ng-cloak&gt;&lt;div id="messages" class="grid-12" ng-show="model.errorMessage"&gt;&lt;div class="messages error"&gt;&lt;strong&gt;{{resourceHelper.getResourceString('__ERROR_TITLE__')}}&lt;/strong&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class="zone-wrapper"&gt;&lt;div class="zone-wrapper-inner"&gt;&lt;div class="zone-content"&gt;&lt;span ng-show="viewData.model.errorMessage"&gt;{{viewData.model.errorMessage}}&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/section&gt;&lt;ng-include src="'/app/partials/footer.html'"&gt;&lt;/ng-include&gt;&lt;/div&gt;&lt;script id="modelJson" type="application/json"&gt;{&amp;quot;errorMessage&amp;quot;:&amp;quot;There was an unexpected error&amp;quot;,&amp;quot;requestId&amp;quot;:&amp;quot;44ae6e87-d119-40c5-99b2-4c05f4187002&amp;quot;,&amp;quot;siteUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/&amp;quot;,&amp;quot;siteName&amp;quot;:&amp;quot;DexcomSTS&amp;quot;,&amp;quot;currentUser&amp;quot;:null,&amp;quot;logoutUrl&amp;quot;:&amp;quot;https://uam1.dexcom.com/identity/logout&amp;quot;,&amp;quot;custom&amp;quot;:null}&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-route.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-1.3.14/angular-resource.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/underscore-1.6.0/underscore.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/angular-gettext-0.2.9/angular-gettext.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/dexEnvironment.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/libs/encoder/encoder.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/components.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;script src="/app/error.min.js?v=1588892804366"&gt;&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;
+
+
+ 
+ </msg>
+<msg timestamp="20201031 21:13:01.818" level="INFO">/Users/darren/anaconda3/envs/dexcom/lib/python3.7/site-packages/urllib3/connectionpool.py:988: InsecureRequestWarning: Unverified HTTPS request is being made to host 'uam1.dexcom.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#ssl-warnings
+  InsecureRequestWarning,</msg>
+<msg timestamp="20201031 21:13:01.818" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20201031 21:13:00.780" endtime="20201031 21:13:01.818"></status>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<doc>Converts the given item to a Unicode string.</doc>
+<arguments>
+<arg>${response.status_code}</arg>
+</arguments>
+<assign>
+<var>${status_code}</var>
+</assign>
+<msg timestamp="20201031 21:13:01.819" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20201031 21:13:01.819" endtime="20201031 21:13:01.819"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status_code}</arg>
+<arg>200</arg>
+</arguments>
+<status status="PASS" starttime="20201031 21:13:01.819" endtime="20201031 21:13:01.820"></status>
+</kw>
+<status status="PASS" starttime="20201031 21:13:00.778" endtime="20201031 21:13:01.820" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20201031 21:12:59.484" endtime="20201031 21:13:01.821"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0">Critical Tests</stat>
+<stat pass="2" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" id="s1" name="TC1 GET HomeUser">TC1 GET HomeUser</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
