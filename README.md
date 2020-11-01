@@ -12,14 +12,12 @@
         PASSWORD=your_password
         ACCESS_TOKEN=your_token
         ```
-<br>
 
 ### Test Case:
 1.	Login with valid username and password
 2.	make HTTP request call to "/api/subject/1594950620847472640/analysis_session"
 3.	Assert analysisSessionId should not be None
 
-<br>
 
 ### Constraints
 * DO NOT use selenium and webdriver for this test. Create a test for API, not WEB.
