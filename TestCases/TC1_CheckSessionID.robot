@@ -35,7 +35,7 @@ Login with valid credentials
     ${header}=              create dictionary       Content-Type=x-www-form-urlencoded
     ${response}=            post request            mysession                   ${login_uri}                data=${body}                headers=${header}
 
-    #VALIDATIONS
+    #VALIDATION
     ${status_code}          convert to string       ${response.status_code}
     should be equal         ${status_code}          200
 
@@ -52,4 +52,6 @@ Check for analysisSessionId
     ${response}=            post request            mysession              ${sessionID}         headers=${header}
     ${response_dict}=       set variable            ${response.json()}
     ${analysisSessionId}    get from dictionary     ${response_dict}        analysisSessionId
+
+    #VALIDATION
     should be true          ${analysisSessionId} is not None
