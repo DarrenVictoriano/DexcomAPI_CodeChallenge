@@ -13,6 +13,10 @@
         ACCESS_TOKEN=your_token
         ```
 
+### How to Run:
+1. after installing the dependencies (check requirements section), run the script using the command below:
+   * `robot TestCases/TC1_CheckSessionID.robot`
+
 ### Test Case:
 1.	Login with valid username and password
 2.	make HTTP request call to "/api/subject/1594950620847472640/analysis_session"
